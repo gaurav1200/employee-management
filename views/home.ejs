@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate') %> 
+<% for (let emp of employee){ %>
+<div class="card" style="border: solid 1px black; margin: 5px; padding: 10px;">
+  <div class="row">
+    <div class="col">
+      <p>Name: <%= emp.name %></p>
+      <p>Role: <%= emp.role %></p>
+      <p>Moblile: <%= emp.mobile %></p>
+    </div>
+    <div class="col">
+      <p>Manager: <%= emp.manager %></p>
+      <p>Office: <%= emp.office %></p>
+      <p>Joinig Date: <%= emp.joinigDate.toDateString() %>(
+        <% var months;%>
+      <%months = (emp.joinigDate.getFullYear() - year) * 12;%>
+      <%  months -= month;%>
+      <%  months += emp.joinigDate.getMonth();%>
+    
+      <%=Math.abs(months)%>  months ago) </p>
+    </div>
+    <a href="/employees/<%= emp._id%>">view</a>
+    <form class="d-inline" action="/employees/<%= emp._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger btn-sm">DELETE</button>
+        </form>
+  </div>
+</div>
+<% } %>

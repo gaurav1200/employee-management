@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="card" style="border: solid 1px black; margin: 5px; padding: 10px;">
+    <div class="row">
+      <div class="col">
+        <p>Name: <%= employee.name %></p>
+        <p>Role: <%= employee.role %></p>
+        <p>Moblile: <%= employee.mobile %></p>
+      </div>
+      <div class="col">
+        <p>Manager: <%= employee.manager %></p>
+        <p>Office: <%= employee.office %></p>
+        <p>Joinig Date: <%= emp.joinigDate.toDateString() %>(
+          <% var months;%>
+        <%months = (emp.joinigDate.getFullYear() - year) * 12;%>
+        <%  months -= month;%>
+        <%  months += emp.joinigDate.getMonth();%>
+      
+        <%=Math.abs(months)%>  months ago) </p>
+      </div>
+      <form class="d-inline" action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-danger btn-sm">DELETE</button>
+          </form>
+    </div>
+  </div>
