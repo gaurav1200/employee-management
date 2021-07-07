@@ -26,9 +26,8 @@ app.use(methodOverride('_method'));
 
 const year = (new Date()).getFullYear();
 const month = (new Date()).getMonth()
-app.get('/',async(req, res)=>{
-    const employee = await Employee.find({});
-res.render('home', {employee , year, month});
+app.get('/',(req, res)=>{
+res.render('home1');
 })
 
 app.get('/employees',async (req,res)=>{
